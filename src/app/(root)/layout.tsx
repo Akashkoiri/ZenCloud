@@ -18,7 +18,7 @@ export default function DashboardLayout({ children }: props) {
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
       <SidebarInset>
-        <header className="sticky top-0 flex h-20 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-15 z-10 bg-transparent backdrop-blur-2xl">
+        <header className="sticky top-0 flex h-20 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-15 bg-transparent backdrop-blur-2xl">
           <div className="w-full flex justify-between items-center gap-2 px-4">
             <div className="flex items-center">
               <SidebarTrigger className="-ml-1" />
@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }: props) {
                 className="mr-2 data-[orientation=vertical]:h-4"
               />
             </div>
-            <div className="flex gap-2 z-20">
+            <div className="flex gap-2">
               <GlobalSearch />
               <AnimatedModal />
               <ModeToggle />

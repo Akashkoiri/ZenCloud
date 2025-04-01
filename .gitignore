@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Others
 *.pdf
+
+# Virtual environment
+/backend/.venv/
