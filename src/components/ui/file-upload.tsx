@@ -1,8 +1,8 @@
-"use clint";
+"use client";
 
 import { cn } from "@/lib/utils";
 import { Dispatch, SetStateAction, useRef } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { IconUpload } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 
@@ -38,7 +38,7 @@ export const FileUpload = ({ files, setFiles, onChange }: props) => {
 
   const handleFileChange = (newFiles: File[]) => {
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
-    onChange && onChange(newFiles);
+    if (onChange) onChange(newFiles);
   };
 
   const handleClick = () => {

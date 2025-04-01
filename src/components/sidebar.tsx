@@ -1,26 +1,31 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   AlertCircle,
   Clock,
   Cloud,
   Computer,
   HardDrive,
-  Image,
+  LucideImages,
   PlusCircle,
   Share2,
   Star,
   Trash2,
   Users,
-} from "lucide-react"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Progress } from "@/components/ui/progress"
+} from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Progress } from "@/components/ui/progress";
 
 interface SidebarProps {
-  currentFolder: string
-  setCurrentFolder: (folder: string) => void
+  currentFolder: string;
+  setCurrentFolder: (folder: string) => void;
 }
 
 export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
@@ -49,7 +54,7 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
       name: "Trash",
       icon: <Trash2 className="h-4 w-4" />,
     },
-  ]
+  ];
 
   const secondaryNavItems = [
     {
@@ -60,20 +65,20 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
       name: "Shared drives",
       icon: <Users className="h-4 w-4" />,
     },
-  ]
+  ];
 
   const labels = [
     { name: "Documents", color: "#4285f4" },
     { name: "Finance", color: "#0f9d58" },
     { name: "Personal", color: "#fbbc04" },
     { name: "Work", color: "#ea4335" },
-  ]
+  ];
 
   // Used GB calculation
-  const totalStorage = 15 // GB
-  const usedStorage = 6.43 // GB
-  const usedPercentage = (usedStorage / totalStorage) * 100
-  const remainingStorage = totalStorage - usedStorage
+  const totalStorage = 15; // GB
+  const usedStorage = 6.43; // GB
+  const usedPercentage = (usedStorage / totalStorage) * 100;
+  // const remainingStorage = totalStorage - usedStorage;
 
   return (
     <div className="hidden md:flex w-64 flex-col border-r border-[#333] bg-[#1e1e1e] p-3">
@@ -119,7 +124,9 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
 
           <div className="my-2 border-t border-[#333]" />
 
-          <div className="px-3 py-1 text-xs font-medium text-gray-400">LABELS</div>
+          <div className="px-3 py-1 text-xs font-medium text-gray-400">
+            LABELS
+          </div>
 
           {labels.map((label) => (
             <Button
@@ -128,7 +135,10 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
               className="justify-start gap-3 h-10 px-3 text-gray-300 hover:text-white hover:bg-[#2d2d2d]"
               onClick={() => setCurrentFolder(label.name)}
             >
-              <span className="h-3 w-3 rounded-full" style={{ backgroundColor: label.color }} />
+              <span
+                className="h-3 w-3 rounded-full"
+                style={{ backgroundColor: label.color }}
+              />
               <span className="text-sm">{label.name}</span>
             </Button>
           ))}
@@ -159,7 +169,7 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
                   size="icon"
                   className="h-6 w-6 text-gray-400 hover:text-white hover:bg-[#414141]"
                 >
-                  <Image className="h-3 w-3" />
+                  <LucideImages className="h-3 w-3" />
                 </Button>
               </TooltipTrigger>
               <TooltipContent side="top">
@@ -169,22 +179,20 @@ export function Sidebar({ currentFolder, setCurrentFolder }: SidebarProps) {
           </TooltipProvider>
         </div>
 
-        <Progress
-          value={usedPercentage}
-          className="h-1.5 mb-2"
-          indicatorClassName="bg-gradient-to-r from-[#4285f4] to-[#34a853]"
-        />
+        <Progress value={usedPercentage} className="h-1.5 mb-2" />
 
         <div className="text-xs text-gray-400">
           <p>
             {usedStorage.toFixed(2)} GB of {totalStorage} GB used
           </p>
-          <Button variant="link" className="h-auto p-0 text-xs text-[#4285f4] hover:text-[#5a9dff] mt-1">
+          <Button
+            variant="link"
+            className="h-auto p-0 text-xs text-[#4285f4] hover:text-[#5a9dff] mt-1"
+          >
             Buy storage
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
-

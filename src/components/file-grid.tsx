@@ -40,6 +40,7 @@ import {
   X,
 } from "lucide-react";
 import { Breadcrumb } from "./breadcrumb";
+import Image from "next/image";
 
 type props = {
   view: "grid" | "list";
@@ -441,7 +442,7 @@ export function FileGrid({
                 ) : (
                   <div className="aspect-video bg-[#3a3a3a] relative overflow-hidden">
                     {file.thumbnail ? (
-                      <img
+                      <Image
                         src={file.thumbnail || "/placeholder.svg"}
                         alt={file.name}
                         className="w-full h-full object-cover"
