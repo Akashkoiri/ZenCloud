@@ -13,6 +13,7 @@ export function DriveDashboard() {
   const toggleDetailPanel = (fileId?: string) => {
     if (fileId) {
       setSelectedFile(fileId);
+      setCurrentFolder("Drive");
       // setShowDetailPanel(true);
     } else {
       // setShowDetailPanel(!showDetailPanel);

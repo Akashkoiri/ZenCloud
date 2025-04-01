@@ -2,9 +2,7 @@
 
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
-import { CommandDemo } from "./CommandDemo";
 import { useEffect, useState } from "react";
-import { AnimatedModal } from "./animated-modal";
 
 export default function GlobalSearch() {
   const [show, setShow] = useState(false);
